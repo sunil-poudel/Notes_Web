@@ -41,7 +41,7 @@ public class NotesWebApplication {
 
 //            readAllNotes(notesDAO);
 
-            deleteAllNotes(notesDAO);
+//            deleteAllNotes(notesDAO);
 
         };
     }
