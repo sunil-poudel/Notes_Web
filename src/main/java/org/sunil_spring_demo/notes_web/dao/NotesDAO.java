@@ -20,6 +20,8 @@ public interface NotesDAO {
 
     void deleteNote(int id);
 
+    void deleteMultipleNotes();
+
 
 
 }

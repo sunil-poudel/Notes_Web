@@ -35,7 +35,11 @@ public class NotesWebApplication {
 //                )
 //            );
 
-            deleteNote(notesDAO, 2);
+//            deleteNote(notesDAO, 2);
+
+            deleteMultipleNotes(notesDAO);
+
+
         };
     }
 
@@ -91,6 +95,10 @@ public class NotesWebApplication {
 
         //try catch is actually not needed, we can simply check if null is result because invalid id yields null
 
+    }
+
+    public void deleteMultipleNotes(NotesDAO notesDAO){
+        notesDAO.deleteMultipleNotes();
     }
 
 }

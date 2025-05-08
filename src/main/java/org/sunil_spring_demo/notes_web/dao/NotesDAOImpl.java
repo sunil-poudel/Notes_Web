@@ -83,4 +83,13 @@ public class NotesDAOImpl implements NotesDAO{
         entityManager.remove(note);
     }
 
+    @Override
+    @Transactional
+    public void deleteMultipleNotes() {
+        int n = entityManager.createQuery(
+                "DELETE FROM Notes WHERE mood='exciting'"
+        ).executeUpdate();
+        System.out.println("Deleted successfully!");
+    }
+
 }
