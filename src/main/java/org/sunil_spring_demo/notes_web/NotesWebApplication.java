@@ -21,7 +21,7 @@ public class NotesWebApplication {
     }
 
     public void createNote(NotesDAO notesDAO){
-        Notes note = new Notes("2081/01/25", "happy", "It's a good day!");
+        Notes note = new Notes("2081/01/25", "sad", "It's a long boring day!");
         notesDAO.createNote(note);
         System.out.println("Note created successfully!");
         System.out.println(note);
