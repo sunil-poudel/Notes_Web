@@ -12,4 +12,6 @@ public interface NotesDAO {
 
     Notes readNote(int id);
 
+    List<Notes> readMultipleNotes();
+
 }

@@ -21,7 +21,8 @@ public class NotesWebApplication {
 //            createNote(notesDAO);
 //            createMultipleNotes(notesDAO);
 
-            readNote(notesDAO, 4);
+//            readNote(notesDAO, 4);
+            readMultipleNotes(notesDAO);
         };
     }
 
@@ -50,6 +51,12 @@ public class NotesWebApplication {
         Notes note = notesDAO.readNote(id);
         System.out.println("Note read successfully!");
         System.out.println(note);
+    }
+
+    public void readMultipleNotes(NotesDAO notesDAO){
+        List<Notes> notes = notesDAO.readMultipleNotes();
+        System.out.println("Notes read successfully!");
+        System.out.println(notes);
     }
 
 }
