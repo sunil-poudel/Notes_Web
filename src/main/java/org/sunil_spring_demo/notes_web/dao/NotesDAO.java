@@ -1,6 +1,7 @@
 package org.sunil_spring_demo.notes_web.dao;
 
 
+import jakarta.persistence.TypedQuery;
 import org.sunil_spring_demo.notes_web.entity.Notes;
 
 import java.util.List;
@@ -21,6 +22,11 @@ public interface NotesDAO {
     void deleteNote(int id);
 
     void deleteMultipleNotes();
+
+    void readAllNotes();
+
+    void deleteAllNotes();
+
 
 
 

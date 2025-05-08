@@ -89,7 +89,30 @@ public class NotesDAOImpl implements NotesDAO{
         int n = entityManager.createQuery(
                 "DELETE FROM Notes WHERE mood='exciting'"
         ).executeUpdate();
-        System.out.println("Deleted successfully!");
+        System.out.println("Deleted "+ n+" row(s) successfully!");
     }
+
+    @Override
+    public void readAllNotes(){
+        TypedQuery<Notes> notesQuery = entityManager.createQuery(
+                "FROM Notes", Notes.class
+        );
+        List<Notes> notes = notesQuery.getResultList();
+        System.out.println("Read all notes, success!");
+        for(Notes note:notes){
+            System.out.println(note);
+        }
+    }
+
+    @Override
+    @Transactional
+    public void deleteAllNotes(){
+        int n = entityManager.createQuery(
+                "DELETE FROM Notes"
+        ).executeUpdate();
+        System.out.println("deleted "+n+" row(s) successfully!");
+    }
+
+
 
 }

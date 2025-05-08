@@ -37,8 +37,11 @@ public class NotesWebApplication {
 
 //            deleteNote(notesDAO, 2);
 
-            deleteMultipleNotes(notesDAO);
+//            deleteMultipleNotes(notesDAO);
 
+//            readAllNotes(notesDAO);
+
+            deleteAllNotes(notesDAO);
 
         };
     }
@@ -99,6 +102,14 @@ public class NotesWebApplication {
 
     public void deleteMultipleNotes(NotesDAO notesDAO){
         notesDAO.deleteMultipleNotes();
+    }
+
+    public void readAllNotes(NotesDAO notesDAO){
+        notesDAO.readAllNotes();
+    }
+
+    public void deleteAllNotes(NotesDAO notesDAO){
+        notesDAO.deleteAllNotes();
     }
 
 }
