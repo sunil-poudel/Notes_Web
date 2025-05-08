@@ -19,7 +19,9 @@ public class NotesWebApplication {
     public CommandLineRunner commandLineRunner(NotesDAO notesDAO){
         return runner -> {
 //            createNote(notesDAO);
-            createMultipleNotes(notesDAO);
+//            createMultipleNotes(notesDAO);
+
+            readNote(notesDAO, 4);
         };
     }
 
@@ -42,6 +44,12 @@ public class NotesWebApplication {
         for(Notes note:notesList){
             System.out.println(note);
         }
+    }
+
+    public void readNote(NotesDAO notesDAO, int id){
+        Notes note = notesDAO.readNote(id);
+        System.out.println("Note read successfully!");
+        System.out.println(note);
     }
 
 }

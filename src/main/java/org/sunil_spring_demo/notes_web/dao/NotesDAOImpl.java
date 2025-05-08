@@ -31,4 +31,10 @@ public class NotesDAOImpl implements NotesDAO{
         }
     }
 
+    @Override
+    public Notes readNote(int id){
+        Notes note = entityManager.find(Notes.class, id);
+        return note;
+    }
+
 }

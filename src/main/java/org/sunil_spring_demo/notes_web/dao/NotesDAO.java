@@ -10,4 +10,6 @@ public interface NotesDAO {
 
     void createMultipleNotes(List<Notes> notesList);
 
+    Notes readNote(int id);
+
 }
