@@ -22,7 +22,9 @@ public class NotesWebApplication {
 //            createMultipleNotes(notesDAO);
 
 //            readNote(notesDAO, 4);
-            readMultipleNotes(notesDAO);
+//            readMultipleNotes(notesDAO);
+
+            updateNote(notesDAO, new Notes("2072/10/13", "Tired", "Yesterday's party was too much"));
         };
     }
 
@@ -57,6 +59,11 @@ public class NotesWebApplication {
         List<Notes> notes = notesDAO.readMultipleNotes();
         System.out.println("Notes read successfully!");
         System.out.println(notes);
+    }
+
+    public void updateNote(NotesDAO notesDAO, Notes note){
+        notesDAO.updateNote(3,note);
+        System.out.println("Note updated successfully!");
     }
 
 }

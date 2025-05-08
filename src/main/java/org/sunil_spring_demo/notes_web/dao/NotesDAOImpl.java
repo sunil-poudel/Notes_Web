@@ -46,4 +46,13 @@ public class NotesDAOImpl implements NotesDAO{
         return notes.getResultList();
     }
 
+    @Override
+    @Transactional
+    public void updateNote(int id, Notes updatedNote) {
+        Notes note = entityManager.find(Notes.class, id);
+        note.setDate(updatedNote.getDate());
+        note.setMood(updatedNote.getMood());
+        note.setText(updatedNote.getText());
+    }
+
 }

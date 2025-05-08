@@ -14,4 +14,7 @@ public interface NotesDAO {
 
     List<Notes> readMultipleNotes();
 
+    void updateNote(int id, Notes updatedNote);
+
+
 }
