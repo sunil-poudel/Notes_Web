@@ -24,7 +24,16 @@ public class NotesWebApplication {
 //            readNote(notesDAO, 4);
 //            readMultipleNotes(notesDAO);
 
-            updateNote(notesDAO, new Notes("2072/10/13", "Tired", "Yesterday's party was too much"));
+//            updateNote(notesDAO, new Notes("2072/10/13", "Tired", "Yesterday's party was too much"));
+
+            updateMultipleNotes(notesDAO,
+                List.of(1,2,4),
+                List.of(
+                        new Notes("2081/06/01", "Exciting", "Vacation has started"),
+                        new Notes("2082/01/12", "Frustrating", "There is war around the globe"),
+                        new Notes("2082/10/08", "Blessed", "Just finished year long project")
+                )
+            );
         };
     }
 
@@ -38,7 +47,7 @@ public class NotesWebApplication {
     public void createMultipleNotes(NotesDAO notesDAO){
         List<Notes> notesList = List.of(
                 new Notes("2081/01/01", "Cool", "It's raining"),
-                new Notes("2072/01/12", "Frustratin", "There was just an earthquake"),
+                new Notes("2072/01/12", "Frustrating", "There was just an earthquake"),
                 new Notes("2072/10/12", "Happy", "Today's my birthday"),
                 new Notes("2082/10/08", "Chill", "Just finished board exam")
         );
@@ -57,13 +66,17 @@ public class NotesWebApplication {
 
     public void readMultipleNotes(NotesDAO notesDAO){
         List<Notes> notes = notesDAO.readMultipleNotes();
-        System.out.println("Notes read successfully!");
+        System.out.println("Note(s) read successfully!");
         System.out.println(notes);
     }
 
     public void updateNote(NotesDAO notesDAO, Notes note){
         notesDAO.updateNote(3,note);
         System.out.println("Note updated successfully!");
+    }
+
+    public void updateMultipleNotes(NotesDAO notesDAO, List<Integer> ids, List<Notes> updatedNotes){
+        notesDAO.updateMultipleNotes(ids, updatedNotes);
     }
 
 }

@@ -55,4 +55,25 @@ public class NotesDAOImpl implements NotesDAO{
         note.setText(updatedNote.getText());
     }
 
+    @Override
+    @Transactional
+    public void updateMultipleNotes(List<Integer> ids, List<Notes> updatedNotes) {
+        int j=0;
+        if(ids.size()==updatedNotes.size()) {
+            for (int i : ids) {
+                Notes note = entityManager.find(Notes.class, i);
+                Notes updatedNote = updatedNotes.get(j);
+                j++;
+
+                note.setDate(updatedNote.getDate());
+                note.setMood(updatedNote.getMood());
+                note.setText(updatedNote.getText());
+            }
+            System.out.println("Notes updated successfully");
+
+        } else{
+            System.out.println("Invalid operation! Make sure number of ids and updated notes are same!!!");
+        }
+    }
+
 }
