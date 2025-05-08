@@ -7,6 +7,8 @@ import org.springframework.context.annotation.Bean;
 import org.sunil_spring_demo.notes_web.dao.NotesDAO;
 import org.sunil_spring_demo.notes_web.entity.Notes;
 
+import java.util.List;
+
 @SpringBootApplication
 public class NotesWebApplication {
 
@@ -16,7 +18,8 @@ public class NotesWebApplication {
     @Bean
     public CommandLineRunner commandLineRunner(NotesDAO notesDAO){
         return runner -> {
-            createNote(notesDAO);
+//            createNote(notesDAO);
+            createMultipleNotes(notesDAO);
         };
     }
 
@@ -25,6 +28,20 @@ public class NotesWebApplication {
         notesDAO.createNote(note);
         System.out.println("Note created successfully!");
         System.out.println(note);
+    }
+
+    public void createMultipleNotes(NotesDAO notesDAO){
+        List<Notes> notesList = List.of(
+                new Notes("2081/01/01", "Cool", "It's raining"),
+                new Notes("2072/01/12", "Frustratin", "There was just an earthquake"),
+                new Notes("2072/10/12", "Happy", "Today's my birthday"),
+                new Notes("2082/10/08", "Chill", "Just finished board exam")
+        );
+        notesDAO.createMultipleNotes(notesList);
+        System.out.println("Notes created successfully!");
+        for(Notes note:notesList){
+            System.out.println(note);
+        }
     }
 
 }

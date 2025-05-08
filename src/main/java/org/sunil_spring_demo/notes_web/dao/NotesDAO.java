@@ -3,7 +3,11 @@ package org.sunil_spring_demo.notes_web.dao;
 
 import org.sunil_spring_demo.notes_web.entity.Notes;
 
+import java.util.List;
+
 public interface NotesDAO {
     void createNote(Notes note);
+
+    void createMultipleNotes(List<Notes> notesList);
 
 }
