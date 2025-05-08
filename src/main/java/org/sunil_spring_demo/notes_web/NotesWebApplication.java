@@ -26,14 +26,16 @@ public class NotesWebApplication {
 
 //            updateNote(notesDAO, new Notes("2072/10/13", "Tired", "Yesterday's party was too much"));
 
-            updateMultipleNotes(notesDAO,
-                List.of(1,2,4),
-                List.of(
-                        new Notes("2081/06/01", "Exciting", "Vacation has started"),
-                        new Notes("2082/01/12", "Frustrating", "There is war around the globe"),
-                        new Notes("2082/10/08", "Blessed", "Just finished year long project")
-                )
-            );
+//            updateMultipleNotes(notesDAO,
+//                List.of(1,2,4),
+//                List.of(
+//                        new Notes("2081/06/01", "Exciting", "Vacation has started"),
+//                        new Notes("2082/01/12", "Frustrating", "There is war around the globe"),
+//                        new Notes("2082/10/08", "Blessed", "Just finished year long project")
+//                )
+//            );
+
+            deleteNote(notesDAO, 2);
         };
     }
 
@@ -77,6 +79,18 @@ public class NotesWebApplication {
 
     public void updateMultipleNotes(NotesDAO notesDAO, List<Integer> ids, List<Notes> updatedNotes){
         notesDAO.updateMultipleNotes(ids, updatedNotes);
+    }
+
+    public void deleteNote(NotesDAO notesDAO, int id){
+        try {
+            notesDAO.deleteNote(id);
+            System.out.println("Note deleted successfully!");
+        } catch (Exception e){
+            System.out.println("Not found!");
+        }
+
+        //try catch is actually not needed, we can simply check if null is result because invalid id yields null
+
     }
 
 }

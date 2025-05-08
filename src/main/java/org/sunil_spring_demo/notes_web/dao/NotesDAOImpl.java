@@ -76,4 +76,11 @@ public class NotesDAOImpl implements NotesDAO{
         }
     }
 
+    @Override
+    @Transactional
+    public void deleteNote(int id) {
+        Notes note = entityManager.find(Notes.class, id);
+        entityManager.remove(note);
+    }
+
 }

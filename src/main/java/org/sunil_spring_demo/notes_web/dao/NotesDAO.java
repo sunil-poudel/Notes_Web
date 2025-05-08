@@ -18,5 +18,8 @@ public interface NotesDAO {
 
     void updateMultipleNotes(List<Integer> ids, List<Notes> updatedNotes);
 
+    void deleteNote(int id);
+
+
 
 }
